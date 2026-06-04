@@ -605,8 +605,8 @@ function moveButton(){
         window.innerWidth < 768;
 
         const distance = isMobile
-        ? Math.random() * 90 + 110
-        : Math.random() * 260 + 250;
+         ? Math.random() * 140 + 80
+         : Math.random() * 260 + 250;
 
         newX =
         centerX + Math.cos(angle) * distance;
@@ -643,9 +643,9 @@ function moveButton(){
         const actualDistance =
         Math.sqrt(dx*dx + dy*dy);
 
-        if(actualDistance > 120){
-            validPosition = true;
-        }
+        if(actualDistance > (isMobile ? 70 : 120)){
+    validPosition = true;
+}
     }
 
     noBtn.style.left = `${newX}px`;
