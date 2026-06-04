@@ -26,9 +26,7 @@ body{
     color:white;
 }
 
-/* =========================
-BACKGROUND
-========================= */
+/* BACKGROUND */
 
 .background{
     position:fixed;
@@ -43,7 +41,6 @@ BACKGROUND
     );
 
     background-size:400% 400%;
-
     animation:gradientMove 14s ease infinite;
 
     z-index:-3;
@@ -64,9 +61,7 @@ BACKGROUND
     }
 }
 
-/* =========================
-FLOATING HEARTS
-========================= */
+/* HEARTS */
 
 .hearts{
     position:fixed;
@@ -101,9 +96,7 @@ FLOATING HEARTS
     }
 }
 
-/* =========================
-MAIN CONTAINER
-========================= */
+/* MAIN */
 
 .container{
     width:100%;
@@ -121,7 +114,6 @@ MAIN CONTAINER
 .card{
     max-width:850px;
     width:100%;
-
     animation:fadeIn 1s ease;
 }
 
@@ -138,9 +130,7 @@ MAIN CONTAINER
     }
 }
 
-/* =========================
-TEXT
-========================= */
+/* TEXT */
 
 .title{
     font-family:'Playfair Display',serif;
@@ -167,9 +157,7 @@ TEXT
     transition:.3s ease;
 }
 
-/* =========================
-BUTTONS
-========================= */
+/* BUTTONS */
 
 .buttons{
     position:relative;
@@ -252,9 +240,7 @@ button{
     }
 }
 
-/* =========================
-SUCCESS PAGE
-========================= */
+/* SUCCESS */
 
 .success{
     display:none;
@@ -298,9 +284,7 @@ SUCCESS PAGE
     object-fit:cover;
 }
 
-/* =========================
-MUSIC BUTTON
-========================= */
+/* MUSIC BUTTON */
 
 .music-btn{
 
@@ -337,9 +321,7 @@ MUSIC BUTTON
     transform:scale(1.08);
 }
 
-/* =========================
-MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:768px){
 
@@ -360,7 +342,6 @@ MOBILE
     .love-text{
 
         font-size:1rem;
-
         padding:0 10px;
     }
 
@@ -390,8 +371,6 @@ MOBILE
 
 <div class="container">
 
-    <!-- FIRST SCREEN -->
-
     <div class="card" id="proposalPage">
 
         <h1 class="title">
@@ -418,8 +397,6 @@ MOBILE
         <div class="message" id="message"></div>
 
     </div>
-
-    <!-- SUCCESS PAGE -->
 
     <div class="success" id="successPage">
 
@@ -448,15 +425,13 @@ MOBILE
 
 <!-- MUSIC -->
 
-<audio id="bgMusic" autoplay loop>
+<audio id="bgMusic" loop>
     <source src="arctic_monkey_-_i_wanna_be_yours_(mp3.pm).mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-/* =========================
-FLOATING HEARTS
-========================= */
+/* HEARTS */
 
 const heartsContainer =
 document.getElementById("hearts");
@@ -501,9 +476,7 @@ function createHeart(){
 
 setInterval(createHeart,300);
 
-/* =========================
-BUTTON LOGIC
-========================= */
+/* BUTTONS */
 
 const noBtn =
 document.getElementById("noBtn");
@@ -539,8 +512,6 @@ const sarcasticMessages = [
 
 ];
 
-/* INITIAL POSITIONS */
-
 noBtn.style.left = "42%";
 noBtn.style.top = "50%";
 
@@ -558,9 +529,7 @@ noBtn.addEventListener(
 
 noBtn.addEventListener(
     "touchstart",
-    (e)=>{
-
-        e.preventDefault();
+    ()=>{
 
         moveButton();
     }
@@ -667,9 +636,7 @@ function moveButton(){
     ];
 }
 
-/* =========================
-YES BUTTON
-========================= */
+/* YES BUTTON */
 
 const proposalPage =
 document.getElementById("proposalPage");
@@ -684,9 +651,7 @@ yesBtn.addEventListener("click",()=>{
     successPage.style.display = "block";
 });
 
-/* =========================
-MUSIC
-========================= */
+/* MUSIC */
 
 const music =
 document.getElementById("bgMusic");
@@ -696,59 +661,9 @@ document.getElementById("musicBtn");
 
 let isPlaying = false;
 
-function startMusic(){
+music.volume = 0.25;
 
-    if(!isPlaying){
-
-        music.volume = 0;
-
-        music.play();
-
-        let fade = setInterval(()=>{
-
-            if(music.volume < 0.25){
-
-                music.volume += 0.02;
-
-            }else{
-
-                clearInterval(fade);
-            }
-
-        },200);
-
-        musicBtn.innerHTML = "🎵";
-
-        musicBtn.classList.add("playing");
-
-        isPlaying = true;
-    }
-}
-
-/* AUTO START */
-/* AUTO START */
-
-document.addEventListener(
-    "mousemove",
-    startMusic,
-    { once:true }
-);
-
-document.addEventListener(
-    "click",
-    startMusic,
-    { once:true }
-);
-
-document.addEventListener(
-    "touchstart",
-    startMusic,
-    { once:true }
-);
-
-/* MANUAL TOGGLE */
-
-musicBtn.addEventListener("click",()=>{
+musicBtn.addEventListener("click", async () => {
 
     if(isPlaying){
 
@@ -762,13 +677,21 @@ musicBtn.addEventListener("click",()=>{
 
     }else{
 
-        music.play();
+        try{
 
-        musicBtn.innerHTML = "🎵";
+            await music.play();
 
-        musicBtn.classList.add("playing");
+            musicBtn.innerHTML = "🎵";
 
-        isPlaying = true;
+            musicBtn.classList.add("playing");
+
+            isPlaying = true;
+
+        }catch(err){
+
+            console.log("Music blocked");
+
+        }
     }
 });
 
