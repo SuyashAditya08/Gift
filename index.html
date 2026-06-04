@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>For Diskha ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    height:100vh;
+    width:100%;
+    position:relative;
+    color:white;
+}
+
+/* =========================
+BACKGROUND
+========================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(
+        -45deg,
+        #ff4d8d,
+        #ff7a59,
+        #ffb703,
+        #ff5ea8
+    );
+
+    background-size:400% 400%;
+    animation:gradientMove 14s ease infinite;
+    z-index:-3;
+}
+
+@keyframes gradientMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* =========================
+FLOATING HEARTS
+========================= */
+
+.hearts{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    z-index:-1;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    bottom:-50px;
+    font-size:18px;
+    opacity:.7;
+    animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+MAIN CONTAINER
+========================= */
+
+.container{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
+}
+
+.card{
+    max-width:850px;
+    width:100%;
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+TEXT
+========================= */
+
+.title{
+    font-family:'Playfair Display',serif;
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:15px;
+    text-shadow:0 4px 20px rgba(0,0,0,.15);
+}
+
+.from{
+    font-size:1.1rem;
+    opacity:.95;
+    margin-bottom:40px;
+}
+
+.message{
+    margin-top:28px;
+    font-size:1rem;
+    opacity:.95;
+    min-height:30px;
+    transition:.3s;
+}
+
+/* =========================
+BUTTONS
+========================= */
+
+.buttons{
+    position:relative;
+    width:100%;
+    height:220px;
+    margin-top:10px;
+}
+
+button{
+    border:none;
+    outline:none;
+    cursor:pointer;
+    position:absolute;
+    padding:18px 50px;
+    border-radius:999px;
+    font-size:1.2rem;
+    font-weight:600;
+    transition:
+    transform .25s ease,
+    left .35s ease,
+    top .35s ease,
+    background .3s ease;
+
+    backdrop-filter:blur(10px);
+}
+
+.no-btn{
+    background:rgba(255,255,255,.15);
+    color:white;
+    border:2px solid rgba(255,255,255,.5);
+
+    transform:translate(-50%,-50%);
+}
+
+.yes-btn{
+    background:#ff2f92;
+    color:white;
+
+    box-shadow:
+    0 0 35px rgba(255,20,147,.55);
+
+    transform:translate(-50%,-50%);
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:
+    opacity .4s ease,
+    transform .25s ease,
+    left .35s ease,
+    top .35s ease;
+}
+
+.yes-btn:hover{
+    transform:translate(-50%,-50%) scale(1.07);
+}
+
+
+
+.no-btn.bounce{
+    animation:bounce .35s ease;
+}
+
+@keyframes bounce{
+    0%{transform:translate(-50%,-50%) scale(.85);}
+    70%{transform:translate(-50%,-50%) scale(1.08);}
+    100%{transform:translate(-50%,-50%) scale(1);}
+}
+
+/* =========================
+SUCCESS PAGE
+========================= */
+
+.success{
+    display:none;
+    animation:fadeIn 1s ease;
+}
+
+.success h1{
+    font-family:'Playfair Display',serif;
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.love-text{
+    max-width:700px;
+    margin:0 auto 35px;
+    line-height:1.8;
+    font-size:1.15rem;
+}
+
+.gif-box{
+    width:280px;
+    height:280px;
+    margin:0 auto;
+    border-radius:24px;
+    overflow:hidden;
+
+    box-shadow:
+    0 0 60px rgba(255,20,147,.65);
+}
+
+.gif-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* =========================
+MUSIC BUTTON
+========================= */
+
+.music-btn{
+    position:fixed;
+    top:25px;
+    right:25px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:white;
+    color:#ff2f92;
+    font-size:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:10;
+}
+
+/* =========================
+MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .title,
+    .success h1{
+        font-size:2.8rem;
+    }
+
+    button{
+        padding:16px 38px;
+        font-size:1rem;
+    }
+
+    .love-text{
+        font-size:1rem;
+        padding:0 10px;
+    }
+
+    .gif-box{
+        width:220px;
+        height:220px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<div class="hearts" id="hearts"></div>
+
+<button class="music-btn" id="musicBtn">🔊</button>
+
+<div class="container">
+
+    <!-- FIRST SCREEN -->
+
+    <div class="card" id="proposalPage">
+
+        <h1 class="title">
+            Will you be my girlfriend?<br>
+            DISKHA 💖
+        </h1>
+
+        <div class="from">
+            From: SUYASH 💌
+        </div>
+
+        <div class="buttons">
+
+            <button class="no-btn" id="noBtn">
+                No 🥺
+            </button>
+
+            <button class="yes-btn" id="yesBtn">
+                Yes 💕
+            </button>
+
+        </div>
+
+        <div class="message" id="message"></div>
+
+    </div>
+
+    <!-- SUCCESS SCREEN -->
+
+    <div class="success" id="successPage">
+
+        <h1>
+            Yay! I knew you'd say YES! 💗
+        </h1>
+
+        <div class="love-text">
+
+            You're the most beautiful girl I’ve ever met teddy 🧸.
+            I know you get angry fast, but honestly behind that anger
+            is the purest care I’ve ever received.
+            You always think about my betterment even when I don’t realize it myself,
+            and that’s what makes you truly beautiful to me.
+            ~ SUYASH ❤️
+
+        </div>
+
+        <div class="gif-box">
+            <img src=giphy.gif>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MUSIC -->
+
+<audio id="bgMusic" autoplayloop>
+    <source src="arctic_monkey_-_i_wanna_be_yours_(mp3.pm).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+/* =========================
+FLOATING HEARTS
+========================= */
+
+const heartsContainer = document.getElementById("hearts");
+
+function createHeart(){
+
+    const heart = document.createElement("div");
+
+    heart.classList.add("heart");
+
+    const emojis = ["💖","💕","💗","💘","💝","💞"];
+
+    heart.innerHTML =
+    emojis[Math.floor(Math.random()*emojis.length)];
+
+    heart.style.left = Math.random()*100 + "vw";
+
+    heart.style.fontSize =
+    Math.random()*18 + 14 + "px";
+
+    heart.style.animationDuration =
+    Math.random()*6 + 6 + "s";
+
+    heart.style.opacity =
+    Math.random();
+
+    heartsContainer.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },12000);
+}
+
+setInterval(createHeart,300);
+
+/* =========================
+NO BUTTON MOVEMENT
+========================= */
+
+/* =========================
+NO BUTTON MOVEMENT
+========================= */
+
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const message = document.getElementById("message");
+
+const sarcasticMessages = [
+
+    "Nice try 😭",
+    "The button disagrees 💀",
+    "Even destiny said yes 💘",
+    "That ‘No’ looked accidental 👀",
+    "You’re running out of excuses 😭",
+    "Even the button knows 😌",
+    "Try again… it’s not gonna bite 😭",
+    "You wanna press yes anyway 💕",
+    "Bro the answer is obvious 😂",
+    "No option temporarily unavailable 😭",
+     "Come on, just say yes na 🥺",
+    "That was suspiciously close 👀",
+    "Your mouse seems confused 😭",
+    "Aww you almost clicked yes 💕",
+    "This button supports our relationship 😌",
+    "Even I know you like me 💖",
+    "The universe is literally helping me 😂",
+    "No is taking a coffee break ☕",
+    "That button has commitment issues 😭",
+    "At this point just accept fate 💘",
+
+];
+
+/* 
+INITIAL POSITIONS
+NOW NO APPEARS FIRST NATURALLY
+*/
+
+noBtn.style.left = "42%";
+noBtn.style.top = "50%";
+
+yesBtn.style.left = "50%";
+yesBtn.style.top = "50%";
+
+noBtn.addEventListener("mouseenter", moveButton);
+
+function moveButton(){
+
+    yesBtn.style.opacity = "1";
+    yesBtn.style.pointerEvents = "auto";
+    const buttonsRect =
+    document.querySelector(".buttons")
+    .getBoundingClientRect();
+
+    const yesRect =
+    yesBtn.getBoundingClientRect();
+
+    const noRect =
+    noBtn.getBoundingClientRect();
+
+    const centerX =
+    yesRect.left - buttonsRect.left + yesRect.width / 2;
+
+    const centerY =
+    yesRect.top - buttonsRect.top + yesRect.height / 2;
+
+    let newX, newY;
+
+    let validPosition = false;
+
+    while(!validPosition){
+
+        const angle =
+        Math.random() * Math.PI * 2;
+
+        /* 
+        BIGGER DISTANCE RANGE
+        */
+
+        const distance =
+        Math.random() * 620 + 720;
+
+        newX =
+        centerX + Math.cos(angle) * distance;
+
+        newY =
+        centerY + Math.sin(angle) * distance;
+
+        const padding = 25;
+
+        newX = Math.max(
+            padding,
+            Math.min(
+                buttonsRect.width - noRect.width - padding,
+                newX
+            )
+        );
+
+        newY = Math.max(
+            padding,
+            Math.min(
+                buttonsRect.height - noRect.height - padding,
+                newY
+            )
+        );
+
+        /*
+        ENSURE MINIMUM DISTANCE
+        */
+
+        const dx = newX - centerX;
+        const dy = newY - centerY;
+
+        const actualDistance =
+        Math.sqrt(dx * dx + dy * dy);
+
+        /*
+        NEVER TOO CLOSE TO YES
+        */
+
+        if(actualDistance > 200){
+            validPosition = true;
+        }
+    }
+
+    noBtn.style.left = `${newX}px`;
+    noBtn.style.top = `${newY}px`;
+
+    noBtn.classList.remove("bounce");
+
+    void noBtn.offsetWidth;
+
+    noBtn.classList.add("bounce");
+
+    message.innerHTML =
+    sarcasticMessages[
+        Math.floor(
+            Math.random() * sarcasticMessages.length
+        )
+    ];
+}
+
+/* =========================
+YES CLICK
+========================= */
+
+const yesButton =
+document.getElementById("yesBtn");
+
+const proposalPage =
+document.getElementById("proposalPage");
+
+const successPage =
+document.getElementById("successPage");
+
+yesButton.addEventListener("click",()=>{
+
+    proposalPage.style.display="none";
+    successPage.style.display="block";
+
+});
+
+/* =========================
+MUSIC
+========================= */
+
+const music =
+document.getElementById("bgMusic");
+
+const musicBtn =
+document.getElementById("musicBtn");
+
+let isPlaying = false;
+
+/* =========================
+SMART AUTO PLAY
+========================= */
+
+function startMusic(){
+
+    if(!isPlaying){
+
+        music.volume = 0;
+
+        music.play();
+
+        let fade = setInterval(() => {
+
+            if(music.volume < 0.25){
+
+                music.volume += 0.02;
+
+            }else{
+
+                clearInterval(fade);
+            }
+
+        }, 200);
+
+        musicBtn.innerHTML = "🎵";
+
+        musicBtn.classList.add("playing");
+
+        isPlaying = true;
+    }
+}
+
+/* 
+AUTO START ON FIRST INTERACTION
+*/
+
+document.addEventListener(
+    "mousemove",
+    startMusic,
+    { once:true }
+);
+
+document.addEventListener(
+    "click",
+    startMusic,
+    { once:true }
+);
+
+document.addEventListener(
+    "touchstart",
+    startMusic,
+    { once:true }
+);
+
+/* =========================
+MANUAL MUSIC TOGGLE
+========================= */
+
+musicBtn.addEventListener("click", () => {
+
+    if(isPlaying){
+
+        music.pause();
+
+        musicBtn.innerHTML = "🔊";
+
+        musicBtn.classList.remove("playing");
+
+        isPlaying = false;
+
+    }else{
+
+        music.play();
+
+        musicBtn.innerHTML = "🎵";
+
+        musicBtn.classList.add("playing");
+
+        isPlaying = true;
+    }
+});
+
+</script>
+
+.music-btn.playing{
+
+    box-shadow:
+    0 0 25px rgba(255,20,147,.7);
+
+    transform:scale(1.08);
+}
+
+</body>
+</html>
