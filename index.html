@@ -449,7 +449,7 @@ MOBILE
 <!-- MUSIC -->
 
 <audio id="bgMusic" loop>
-    <source src="arctic_monkey_-_i_wanna_be_yours_(mp3.pm).mp3" type="audio/mpeg">
+    <source src="iwannabeyours.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -558,9 +558,9 @@ noBtn.addEventListener(
 
 noBtn.addEventListener(
     "touchstart",
-    ()=>{
+    (e)=>{
 
-        startMusic();
+        e.preventDefault();
 
         moveButton();
     }
@@ -724,8 +724,6 @@ function startMusic(){
         isPlaying = true;
     }
 }
-
-/* AUTO START */
 
 
 
