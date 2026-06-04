@@ -33,6 +33,7 @@ BACKGROUND
 .background{
     position:fixed;
     inset:0;
+
     background:linear-gradient(
         -45deg,
         #ff4d8d,
@@ -42,14 +43,25 @@ BACKGROUND
     );
 
     background-size:400% 400%;
+
     animation:gradientMove 14s ease infinite;
+
     z-index:-3;
 }
 
 @keyframes gradientMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
 }
 
 /* =========================
@@ -73,6 +85,7 @@ FLOATING HEARTS
 }
 
 @keyframes floatUp{
+
     0%{
         transform:translateY(0) rotate(0deg);
         opacity:0;
@@ -95,20 +108,25 @@ MAIN CONTAINER
 .container{
     width:100%;
     min-height:100dvh;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
+
     padding:20px;
 }
 
 .card{
     max-width:850px;
     width:100%;
+
     animation:fadeIn 1s ease;
 }
 
 @keyframes fadeIn{
+
     from{
         opacity:0;
         transform:translateY(20px);
@@ -128,8 +146,11 @@ TEXT
     font-family:'Playfair Display',serif;
     font-size:4rem;
     line-height:1.1;
+
     margin-bottom:15px;
-    text-shadow:0 4px 20px rgba(0,0,0,.15);
+
+    text-shadow:
+    0 4px 20px rgba(0,0,0,.15);
 }
 
 .from{
@@ -143,7 +164,7 @@ TEXT
     font-size:1rem;
     opacity:.95;
     min-height:30px;
-    transition:.3s;
+    transition:.3s ease;
 }
 
 /* =========================
@@ -153,7 +174,7 @@ BUTTONS
 .buttons{
     position:relative;
     width:100%;
-    height:220px;
+    height:340px;
     margin-top:10px;
 }
 
@@ -161,30 +182,41 @@ button{
     border:none;
     outline:none;
     cursor:pointer;
+
     position:absolute;
+
     padding:18px 50px;
+
     border-radius:999px;
+
     font-size:1.2rem;
     font-weight:600;
+
     transition:
     transform .25s ease,
     left .35s ease,
     top .35s ease,
-    background .3s ease;
+    background .3s ease,
+    opacity .4s ease;
 
     backdrop-filter:blur(10px);
 }
 
 .no-btn{
+
     background:rgba(255,255,255,.15);
+
     color:white;
+
     border:2px solid rgba(255,255,255,.5);
 
     transform:translate(-50%,-50%);
 }
 
 .yes-btn{
+
     background:#ff2f92;
+
     color:white;
 
     box-shadow:
@@ -193,29 +225,31 @@ button{
     transform:translate(-50%,-50%);
 
     opacity:0;
-    pointer-events:none;
 
-    transition:
-    opacity .4s ease,
-    transform .25s ease,
-    left .35s ease,
-    top .35s ease;
+    pointer-events:none;
 }
 
 .yes-btn:hover{
     transform:translate(-50%,-50%) scale(1.07);
 }
 
-
-
 .no-btn.bounce{
     animation:bounce .35s ease;
 }
 
 @keyframes bounce{
-    0%{transform:translate(-50%,-50%) scale(.85);}
-    70%{transform:translate(-50%,-50%) scale(1.08);}
-    100%{transform:translate(-50%,-50%) scale(1);}
+
+    0%{
+        transform:translate(-50%,-50%) scale(.85);
+    }
+
+    70%{
+        transform:translate(-50%,-50%) scale(1.08);
+    }
+
+    100%{
+        transform:translate(-50%,-50%) scale(1);
+    }
 }
 
 /* =========================
@@ -242,10 +276,14 @@ SUCCESS PAGE
 }
 
 .gif-box{
+
     width:280px;
     height:280px;
+
     margin:0 auto;
+
     border-radius:24px;
+
     overflow:hidden;
 
     box-shadow:
@@ -253,8 +291,10 @@ SUCCESS PAGE
 }
 
 .gif-box img{
+
     width:100%;
     height:100%;
+
     object-fit:cover;
 }
 
@@ -263,19 +303,38 @@ MUSIC BUTTON
 ========================= */
 
 .music-btn{
+
     position:fixed;
+
     top:25px;
     right:25px;
+
     width:55px;
     height:55px;
+
     border-radius:50%;
+
     background:white;
+
     color:#ff2f92;
+
     font-size:22px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     z-index:10;
+
+    transition:.3s ease;
+}
+
+.music-btn.playing{
+
+    box-shadow:
+    0 0 25px rgba(255,20,147,.7);
+
+    transform:scale(1.08);
 }
 
 /* =========================
@@ -286,22 +345,33 @@ MOBILE
 
     .title,
     .success h1{
-        font-size:2.8rem;
+
+        font-size:2.2rem;
+        line-height:1.2;
     }
 
     button{
-        padding:16px 38px;
+
+        padding:14px 32px;
+
         font-size:1rem;
     }
 
     .love-text{
+
         font-size:1rem;
+
         padding:0 10px;
     }
 
     .gif-box{
+
         width:220px;
         height:220px;
+    }
+
+    .buttons{
+        height:300px;
     }
 }
 
@@ -314,7 +384,9 @@ MOBILE
 
 <div class="hearts" id="hearts"></div>
 
-<button class="music-btn" id="musicBtn">🔊</button>
+<button class="music-btn" id="musicBtn">
+🔊
+</button>
 
 <div class="container">
 
@@ -347,7 +419,7 @@ MOBILE
 
     </div>
 
-    <!-- SUCCESS SCREEN -->
+    <!-- SUCCESS PAGE -->
 
     <div class="success" id="successPage">
 
@@ -367,7 +439,7 @@ MOBILE
         </div>
 
         <div class="gif-box">
-            <img src=giphy.gif>
+            <img src="giphy.gif">
         </div>
 
     </div>
@@ -376,7 +448,7 @@ MOBILE
 
 <!-- MUSIC -->
 
-<audio id="bgMusic" autoplayloop>
+<audio id="bgMusic" autoplay loop>
     <source src="arctic_monkey_-_i_wanna_be_yours_(mp3.pm).mp3" type="audio/mpeg">
 </audio>
 
@@ -386,20 +458,30 @@ MOBILE
 FLOATING HEARTS
 ========================= */
 
-const heartsContainer = document.getElementById("hearts");
+const heartsContainer =
+document.getElementById("hearts");
 
 function createHeart(){
 
-    const heart = document.createElement("div");
+    const heart =
+    document.createElement("div");
 
     heart.classList.add("heart");
 
-    const emojis = ["💖","💕","💗","💘","💝","💞"];
+    const emojis = [
+        "💖",
+        "💕",
+        "💗",
+        "💘",
+        "💝",
+        "💞"
+    ];
 
     heart.innerHTML =
     emojis[Math.floor(Math.random()*emojis.length)];
 
-    heart.style.left = Math.random()*100 + "vw";
+    heart.style.left =
+    Math.random()*100 + "vw";
 
     heart.style.fontSize =
     Math.random()*18 + 14 + "px";
@@ -420,16 +502,17 @@ function createHeart(){
 setInterval(createHeart,300);
 
 /* =========================
-NO BUTTON MOVEMENT
+BUTTON LOGIC
 ========================= */
 
-/* =========================
-NO BUTTON MOVEMENT
-========================= */
+const noBtn =
+document.getElementById("noBtn");
 
-const noBtn = document.getElementById("noBtn");
-const yesBtn = document.getElementById("yesBtn");
-const message = document.getElementById("message");
+const yesBtn =
+document.getElementById("yesBtn");
+
+const message =
+document.getElementById("message");
 
 const sarcasticMessages = [
 
@@ -443,7 +526,7 @@ const sarcasticMessages = [
     "You wanna press yes anyway 💕",
     "Bro the answer is obvious 😂",
     "No option temporarily unavailable 😭",
-     "Come on, just say yes na 🥺",
+    "Come on, just say yes na 🥺",
     "That was suspiciously close 👀",
     "Your mouse seems confused 😭",
     "Aww you almost clicked yes 💕",
@@ -452,14 +535,11 @@ const sarcasticMessages = [
     "The universe is literally helping me 😂",
     "No is taking a coffee break ☕",
     "That button has commitment issues 😭",
-    "At this point just accept fate 💘",
+    "At this point just accept fate 💘"
 
 ];
 
-/* 
-INITIAL POSITIONS
-NOW NO APPEARS FIRST NATURALLY
-*/
+/* INITIAL POSITIONS */
 
 noBtn.style.left = "42%";
 noBtn.style.top = "50%";
@@ -467,19 +547,31 @@ noBtn.style.top = "50%";
 yesBtn.style.left = "50%";
 yesBtn.style.top = "50%";
 
-noBtn.addEventListener("mouseenter", moveButton);
-    noBtn.addEventListener("touchstart", (e) => {
+/* DESKTOP */
 
-    e.preventDefault();
+noBtn.addEventListener(
+    "mouseenter",
+    moveButton
+);
 
-    moveButton();
+/* MOBILE */
 
-});
+noBtn.addEventListener(
+    "touchstart",
+    (e)=>{
+
+        e.preventDefault();
+
+        moveButton();
+    }
+);
 
 function moveButton(){
 
     yesBtn.style.opacity = "1";
+
     yesBtn.style.pointerEvents = "auto";
+
     const buttonsRect =
     document.querySelector(".buttons")
     .getBoundingClientRect();
@@ -491,12 +583,16 @@ function moveButton(){
     noBtn.getBoundingClientRect();
 
     const centerX =
-    yesRect.left - buttonsRect.left + yesRect.width / 2;
+    yesRect.left -
+    buttonsRect.left +
+    yesRect.width/2;
 
     const centerY =
-    yesRect.top - buttonsRect.top + yesRect.height / 2;
+    yesRect.top -
+    buttonsRect.top +
+    yesRect.height/2;
 
-    let newX, newY;
+    let newX,newY;
 
     let validPosition = false;
 
@@ -505,12 +601,12 @@ function moveButton(){
         const angle =
         Math.random() * Math.PI * 2;
 
-        /* 
-        BIGGER DISTANCE RANGE
-        */
+        const isMobile =
+        window.innerWidth < 768;
 
-        const distance =
-        Math.random() * 620 + 720;
+        const distance = isMobile
+        ? Math.random() * 90 + 110
+        : Math.random() * 260 + 250;
 
         newX =
         centerX + Math.cos(angle) * distance;
@@ -523,7 +619,9 @@ function moveButton(){
         newX = Math.max(
             padding,
             Math.min(
-                buttonsRect.width - noRect.width - padding,
+                buttonsRect.width -
+                noRect.width -
+                padding,
                 newX
             )
         );
@@ -531,31 +629,27 @@ function moveButton(){
         newY = Math.max(
             padding,
             Math.min(
-                buttonsRect.height - noRect.height - padding,
+                buttonsRect.height -
+                noRect.height -
+                padding,
                 newY
             )
         );
 
-        /*
-        ENSURE MINIMUM DISTANCE
-        */
-
         const dx = newX - centerX;
+
         const dy = newY - centerY;
 
         const actualDistance =
-        Math.sqrt(dx * dx + dy * dy);
+        Math.sqrt(dx*dx + dy*dy);
 
-        /*
-        NEVER TOO CLOSE TO YES
-        */
-
-        if(actualDistance > 200){
+        if(actualDistance > 120){
             validPosition = true;
         }
     }
 
     noBtn.style.left = `${newX}px`;
+
     noBtn.style.top = `${newY}px`;
 
     noBtn.classList.remove("bounce");
@@ -567,17 +661,15 @@ function moveButton(){
     message.innerHTML =
     sarcasticMessages[
         Math.floor(
-            Math.random() * sarcasticMessages.length
+            Math.random() *
+            sarcasticMessages.length
         )
     ];
 }
 
 /* =========================
-YES CLICK
+YES BUTTON
 ========================= */
-
-const yesButton =
-document.getElementById("yesBtn");
 
 const proposalPage =
 document.getElementById("proposalPage");
@@ -585,11 +677,11 @@ document.getElementById("proposalPage");
 const successPage =
 document.getElementById("successPage");
 
-yesButton.addEventListener("click",()=>{
+yesBtn.addEventListener("click",()=>{
 
-    proposalPage.style.display="none";
-    successPage.style.display="block";
+    proposalPage.style.display = "none";
 
+    successPage.style.display = "block";
 });
 
 /* =========================
@@ -604,10 +696,6 @@ document.getElementById("musicBtn");
 
 let isPlaying = false;
 
-/* =========================
-SMART AUTO PLAY
-========================= */
-
 function startMusic(){
 
     if(!isPlaying){
@@ -616,7 +704,7 @@ function startMusic(){
 
         music.play();
 
-        let fade = setInterval(() => {
+        let fade = setInterval(()=>{
 
             if(music.volume < 0.25){
 
@@ -627,7 +715,7 @@ function startMusic(){
                 clearInterval(fade);
             }
 
-        }, 200);
+        },200);
 
         musicBtn.innerHTML = "🎵";
 
@@ -637,9 +725,7 @@ function startMusic(){
     }
 }
 
-/* 
-AUTO START ON FIRST INTERACTION
-*/
+/* AUTO START */
 
 document.addEventListener(
     "mousemove",
@@ -659,11 +745,9 @@ document.addEventListener(
     { once:true }
 );
 
-/* =========================
-MANUAL MUSIC TOGGLE
-========================= */
+/* MANUAL TOGGLE */
 
-musicBtn.addEventListener("click", () => {
+musicBtn.addEventListener("click",()=>{
 
     if(isPlaying){
 
@@ -688,14 +772,6 @@ musicBtn.addEventListener("click", () => {
 });
 
 </script>
-
-.music-btn.playing{
-
-    box-shadow:
-    0 0 25px rgba(255,20,147,.7);
-
-    transform:scale(1.08);
-}
 
 </body>
 </html>
